@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - JACQUES OBED</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #070707; /* Light color for text */
+    background-color:yellow#121212; /* Dark background */
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background: url('images/172844116688.jpg') no-repeat center center/cover;
+}
+
+/* Header Styles */
+header {
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #f0f8ff; /* Alice blue */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffccff; /* Light pink */
+    text-shadow: 0 0 10px #ffccff; /* Light pink glow */
+}
+
+/* Home Section */
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro {
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hello-text {
+    font-size: 1.5em;
+    margin: 0;
+    color: #ffccff; /* Light pink */
+    text-shadow: 0 0 10px #ffccff;
+}
+
+.intro h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #e0ffff; /* Light cyan */
+    text-shadow: 0 0 20px #e0ffff;
+}
+
+.intro p {
+    font-size: 1.5em;
+    color: #d3d3d3; /* Light grey */
+    text-shadow: 0 0 10px #add8e6; /* Light blue */
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background-color: #87cefa; /* Light sky blue */
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(135, 206, 250, 0.5); /* Light sky blue glow */
+}
+
+button:hover {
+    background-color: #4682b4; /* Steel blue */
+    transform: scale(1.05);
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(173, 216, 230, 0.7); /* Light blue glow */
+    border: 2px solid #d8bfd8; /* Thistle border */
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffccff; /* Light pink */
+    text-shadow: 0 0 10px #ffccff;
+}
+
+.portfolio-overlay p {
+    margin-top: 10px;
+    text-align: center;
+    color: #f5f5f5; /* Light color for text */
+}
+
+/* Testimonial and Blog Posts */
+.testimonial-item, .blog-post {
+    background: rgba(0, 0, 0, 0.8); /* Darker background */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    color: #f5f5f5; /* Light color for text */
+    box-shadow: 0 0 20px rgba(173, 216, 230, 0.7); /* Light blue glow */
+    animation: float 3s ease-in-out infinite;
+}
+
+.testimonial-item h3, .blog-post h3 {
+    color: #ffccff; /* Light pink */
+    text-shadow: 0 0 10px #ffccff;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+    color: #f5f5f5; /* Light color for text */
+    box-shadow: 0 0 20px rgba(173, 216, 230, 0.7); /* Light blue glow */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .intro h1 {
+        font-size: 2em;
+    }
+
+    .intro p {
+        font-size: 1.2em;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="intro">
+            <p class="hello-text">Hello, I'm Jacques</p>
+            <h1>Welcome to My Portfolio</h1>
+            <p>Your digital journey begins here</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Read About My Life Struggle Story!</p>
+        <p>I have over 6 years of experience in the tech industry, specializing in web development and UI/UX design. My journey began with a passion for creating beautiful and functional websites, and over the years, I've honed my skills and expanded my expertise.</p>
+        <p>As a full stack developer, I am proficient in both front-end and back-end technologies. My skill set includes:</p>
+        <ul>
+            <li><strong>Front-End:</strong> HTML, CSS, JavaScript, React, Angular</li>
+            <li><strong>Back-End:</strong> Node.js, Express, PHP, Python, Ruby on Rails</li>
+            <li><strong>Database:</strong> MySQL, MongoDB, PostgreSQL</li>
+            <li><strong>Other:</strong> Git, Docker, AWS, RESTful APIs</li>
+        </ul>
+        <ul>
+            <li><strong>WordPress:</strong> 100% - Expert in building and customizing WordPress sites, including themes and plugins.</li>
+            <li><strong>HTML:</strong> 75% - Proficient in writing clean, semantic HTML code.</li>
+            <li><strong>PHP:</strong> 85% - Experienced in server-side scripting and creating dynamic web applications.</li>
+            <li><strong>CSS:</strong> 99% - Skilled in creating responsive designs and using CSS pre-processors like SASS.</li>
+        </ul>
+        <p>In addition to my technical skills, I am a strong advocate for user-centered design and strive to create interfaces that are both visually appealing and easy to use. My projects range from small business websites to large-scale web applications, and I am always looking for new challenges and opportunities to grow.</p>
+        <button>Hire Me!</button>
+    </section>
+
+    <section id="services">
+        <h2>My Services</h2>
+        <ul>
+            <li><strong>Web Development:</strong> Building responsive and functional websites using the latest technologies. I specialize in front-end and back-end development to create seamless user experiences.</li>
+            <li><strong>UI/UX Design:</strong> Crafting intuitive and aesthetically pleasing user interfaces. I focus on user-centered design principles to ensure the best user experience.</li>
+            <li><strong>Graphic Design:</strong> Creating visually appealing graphics for websites, social media, and marketing materials. My design process includes understanding client needs and delivering high-quality visuals.</li>
+            <li><strong>Software Testing:</strong> Ensuring the quality and functionality of web applications through rigorous testing processes. I perform both manual and automated testing to identify and fix issues.</li>
+            <li><strong>SEO Optimization:</strong> Improving website visibility and search engine rankings through effective SEO strategies. I optimize content, improve site speed, and ensure mobile-friendliness.</li>
+            <li><strong>Content Management:</strong> Developing and managing content for websites using CMS platforms like WordPress. I ensure content is well-organized, up-to-date, and engaging.</li>
+            <li><strong>E-commerce Solutions:</strong> Building robust e-commerce platforms to help businesses sell online. I integrate payment gateways, design user-friendly shopping experiences, and provide ongoing support.</li>
+            <li><strong>Consulting Services:</strong> Offering expert advice on web development, design, and digital strategies. I work closely with clients to understand their goals and provide tailored solutions.</li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <h2>My Portfolio</h2>
+        <p>Below are some of the projects that I have worked on. Each project showcases my skills and commitment to delivering high-quality work. Click on the images to see more details or view the live projects.</p>
+
+        <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="portfolio-item">
+                <a href="https://example.com/project1" target="_blank">
+                    <img src="project1-thumbnail.jpg" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h3>Project 1</h3>
+                        <p>A brief description of Project 1, highlighting the main features and technologies used.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-item">
+                <a href="https://example.com/project2" target="_blank">
+                    <img src="project2-thumbnail.jpg" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h3>Project 2</h3>
+                        <p>A brief description of Project 2, highlighting the main features and technologies used.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-item">
+                <a href="https://example.com/project3" target="_blank">
+                    <img src="project3-thumbnail.jpg" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>Project 3</h3>
+                        <p>A brief description of Project 3, highlighting the main features and technologies used.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Add more projects as needed -->
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-item">
+            <h3>John Doe</h3>
+            <p>"Jacques is a phenomenal developer. His attention to detail and creative solutions made our project stand out. Highly recommend!"</p>
+        </div>
+
+        <div class="testimonial-item">
+            <h3>Jane Smith</h3>
+            <p>"Working with Jacques was a game-changer for our business. His UI/UX design skills transformed our website, making it more user-friendly and visually appealing."</p>
+        </div>
+
+        <div class="testimonial-item">
+            <h3>Emily Johnson</h3>
+            <p>"Jacques delivered beyond our expectations. His expertise in both web development and design helped us achieve our goals with ease."</p>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Latest Blog</h2>
+        <div class="blog-post">
+            <h3>The Future of Web Development</h3>
+            <p>Explore the latest trends and technologies shaping the future of web development. From AI integration to advanced front-end frameworks, stay ahead of the curve with our insights.</p>
+        </div>
+
+        <div class="blog-post">
+            <h3>Mastering UI/UX Design</h3>
+            <p>Discover essential principles and best practices for creating exceptional user experiences. Learn how to craft intuitive interfaces and make your designs stand out.</p>
+        </div>
+
+        <div class="blog-post">
+            <h3>Optimizing Your Website for SEO</h3>
+            <p>Boost your website's visibility and search engine rankings with effective SEO strategies. We cover key techniques to improve site performance and drive organic traffic.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Jacques Obed. All rights reserved. | <a href="mailto:obedclassic61@gmail.com">Contact Me</a></p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add a floating star effect
+        function createStars() {
+            const numberOfStars = 100;
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.width = `${Math.random() * 3 + 1}px`;
+                star.style.height = star.style.width;
+                star.style.opacity = Math.random();
+                document.body.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+</body>
+</html>
